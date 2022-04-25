@@ -7,7 +7,9 @@ class othelloIA: #initialsation du socket
 	def __init__(self, ipbut = "localhost", port = 2048 ): #port 2048 : utilisé en local quand l'ordi se comporte comme serveur
 		self.port = port
 		self.ipbut = ipbut
-		 
+		self.name = "IA2003420342"
+		self.matricule1 = "20034"
+		self.matricule2 = "20342"
 		self.s = socket.socket()  
 		serverAddress = (self.ipbut, 3000) #port 3000 : utilisé pour atteindre le serveur de gestion des jeux
 		self.s.connect(serverAddress)
@@ -23,8 +25,8 @@ class othelloIA: #initialsation du socket
 		renseignements = json.dumps({
    		"request": "subscribe",
    		"port": self.port,
-   		"name": "IA2003420342",
-   		"matricules": ["20034", "20342"]
+   		"name": self.name,
+   		"matricules": [self.matricule1, self.matricule2]
 		}) #json.dumps() function converts a Python object into a json string.
 		self.s.send(renseignements.encode('utf8'))
 		self.PingPong()
@@ -35,9 +37,7 @@ class othelloIA: #initialsation du socket
 			receptionsocket.bind(("localhost", self.port))
 			receptionsocket.listen()
 			client, address = receptionsocket.accept()
-			#self.receptionsocket.bind(("localhost", self.port)) #on le met ici pour que l'action soit réitérée à chaque boucle  d'abor envoyer et puis écouter
-			#self.receptionsocket.listen()	
-			#client, address = self.receptionsocket.accept()
+			
 			reception = True
 			etatserv = ""
 			
@@ -59,8 +59,18 @@ class othelloIA: #initialsation du socket
 				pongencode = json.dumps(pong)
 				client.send(pongencode.encode('utf8'))
 				print('ok')
+			if messageread["request"] == "play":
+				
 		client.close()
-			
+
+	def etatjeu(self, ):
+		for i in range (64):
+
+
+	def mouvementspossibles(self, board):
+		pass
+
+
 
 
 			#on crée une boucle qui écoute et qui vérifie si le message reçu est vide
