@@ -13,6 +13,7 @@ class othelloIA: #initialsation du socket
 		self.s = socket.socket()  
 		serverAddress = (self.ipbut, 3000) #port 3000 : utilisé pour atteindre le serveur de gestion des jeux
 		self.s.connect(serverAddress)
+		self.color = ""
 		#self.receptionsocket = socket.socket()
 		
 		
@@ -30,6 +31,7 @@ class othelloIA: #initialsation du socket
 		}) #json.dumps() function converts a Python object into a json string.
 		self.s.send(renseignements.encode('utf8'))
 		self.PingPong()
+		self.couleurjoueur = ""
 	def PingPong(self):
 		
 		while True:
@@ -60,12 +62,16 @@ class othelloIA: #initialsation du socket
 				client.send(pongencode.encode('utf8'))
 				print('ok')
 			if messageread["request"] == "play":
-				
+				if messageread["players"][0] == self.name:
+					self.color = black
+				else:
+					self.color = white
+				self.etatjeu(self.color)
 		client.close()
 
-	def etatjeu(self, ):
+	def etatjeu(self, color ):
 		for i in range (64):
-
+			pass
 
 	def mouvementspossibles(self, board):
 		pass
