@@ -68,10 +68,10 @@ class othelloIA: #initialsation du socket
 				print('ok')
 			if messageread["request"] == "play":
 				if messageread["players"][0] == self.name:
-					self.color = black
+					self.color = "black"
 					
 				else:
-					self.color = white
+					self.color = "white"
 				
 				jeunoir = messageread["board"][0]
 				jeublanc = messageread["board"][1]
@@ -93,7 +93,12 @@ class othelloIA: #initialsation du socket
 			
 
 	def Mouvementspossibles(self, board):
-		pass
+		
+		if self.color == "noir":
+			for l in range(board):
+				pass 
+		if self.color == "blanc":
+				pass
 
 
 
