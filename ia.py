@@ -16,7 +16,7 @@ class othelloIA: #initialsation du socket
 		print(serverAddress)
 		self.s.connect(serverAddress)
 		
-		
+		self.etatcoups = ""
 
 
 		#self.receptionsocket = socket.socket()
@@ -74,6 +74,7 @@ class othelloIA: #initialsation du socket
 				
 				
 				self.PossibleMoves(messageread['state'])
+				self.etatcoups = messageread['state']
 
 				if len(self.mouvementspossibles) > 0:
 					mouvement = self.Coupchoisi()
@@ -102,10 +103,11 @@ class othelloIA: #initialsation du socket
 		liste4 = [0, 7, 56, 63]
 		for elem in self.mouvementspossibles:
 			if elem in liste4:
-				listeelem4 = []
-			#	listeelem4.append(elem)
-			#	for coup in listeelem4:
-			#		self.WillBeTaken(state, move)
+				#listeelem4 = []
+				#listeelem4.append(elem)
+				#for coup in listeelem4:
+				#	self.WillBeTaken(self.etatcoups, elem)
+				return elem
 
 		for elem in self.mouvementspossibles:
 			if elem in liste3:
