@@ -5,7 +5,7 @@ import socket
 import random
 
 class othelloIA: #initialsation du socket 
-	def __init__(self, ipbut = "172.17.10.33" ): #localhost pour jouer en local, sinon, ip du serveur 
+	def __init__(self, ipbut = "localhost" ): #localhost pour jouer en local, sinon, ip du serveur 
 		self.port = int(input("Port, 2048 si vide ") or 2048)
 		self.ipbut = ipbut
 		self.name = input("Nom IA, IA2003420342 si vide ") or "IA2003420342" #permet de donner une valeur par défaut aux input
@@ -82,7 +82,7 @@ class othelloIA: #initialsation du socket
 					mouvementaenvoyer = json.dumps(reponse)
 					client.send(mouvementaenvoyer.encode('utf8'))
 				else :
-					reponse = {"response": "giveup",}
+					reponse = {"response": "move", "move": None, "message": "Fun message"}
 					mouvementaenvoyer = json.dumps(reponse)
 					client.send(mouvementaenvoyer.encode('utf8')) 
 
