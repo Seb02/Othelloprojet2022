@@ -5,7 +5,7 @@ import socket
 import random
 
 class othelloIA: #initialsation du socket 
-	def __init__(self, ipbut = "localhost" ): 
+	def __init__(self, ipbut = "172.17.10.33" ): 
 		self.port = int(input("Port, 2048 si vide ") or 2048)
 		self.ipbut = ipbut
 		self.name = input("Nom IA, IA2003420342 si vide ") or "IA2003420342"
@@ -13,6 +13,7 @@ class othelloIA: #initialsation du socket
 		self.matricule2 = input("matricule 2, 20342 si vide ") or "20342"
 		self.s = socket.socket()  
 		serverAddress = (self.ipbut, 3000) #port 3000 : utilisé pour atteindre le serveur de gestion des jeux
+		print(serverAddress)
 		self.s.connect(serverAddress)
 		self.color = ""
 		self.etatjeu = []
@@ -43,7 +44,7 @@ class othelloIA: #initialsation du socket
 		
 		while True:
 			receptionsocket = socket.socket()
-			receptionsocket.bind(("localhost", self.port))
+			receptionsocket.bind(("0.0.0.0", self.port)) #pour écouter sur toutes nos interfaces réseau
 			receptionsocket.listen()
 			client, address = receptionsocket.accept()
 			
