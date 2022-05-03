@@ -195,7 +195,7 @@ class othelloIA: #initialsation du socket
 	def add(self, p1, p2):
 		l1, c1 = p1
 		l2, c2 = p2
-		return l1 + l2, c1 + c2
+		return l1 + l2, c1 + c2 
 		
 		
 
@@ -208,5 +208,5 @@ class BadMove(Exception): #pour définir une erreur d'un type défini
 
 			#on crée une boucle qui écoute et qui vérifie si le message reçu est vide
 
-			
+#test
 othelloIA().inscription()
