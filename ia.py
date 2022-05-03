@@ -15,7 +15,7 @@ class othelloIA: #initialsation du socket
 		serverAddress = (self.ipbut, 3000) #port 3000 : utilisé pour atteindre le serveur de gestion des jeux
 		print(serverAddress)
 		self.s.connect(serverAddress)
-		self.color = ""
+		
 		
 
 
@@ -68,10 +68,9 @@ class othelloIA: #initialsation du socket
 				print('ok')
 			if messageread["request"] == "play":
 				
-				self.Couleurjoueur(messageread)
+				
 
-				jeunoir = messageread['state']["board"][0]
-				jeublanc = messageread['state']["board"][1]
+				
 				
 				
 				self.PossibleMoves(messageread['state'])
@@ -90,14 +89,7 @@ class othelloIA: #initialsation du socket
 
 	
 			
-	def Couleurjoueur (self, message):
-		
-		listejoueurs = message['state']['players']
-		if listejoueurs[0] == self.name:
-			self.color = "black"
-					
-		else:
-			self.color = "white"
+
 
 	
 	
@@ -110,7 +102,11 @@ class othelloIA: #initialsation du socket
 		liste4 = [0, 7, 56, 63]
 		for elem in self.mouvementspossibles:
 			if elem in liste4:
-				return elem
+				listeelem4 = []
+			#	listeelem4.append(elem)
+			#	for coup in listeelem4:
+			#		self.WillBeTaken(state, move)
+
 		for elem in self.mouvementspossibles:
 			if elem in liste3:
 				return elem
