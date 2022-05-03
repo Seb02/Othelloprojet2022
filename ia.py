@@ -5,7 +5,7 @@ import socket
 import random
 
 class othelloIA: #initialsation du socket 
-	def __init__(self, ipbut = "localhost" ): #localhost pour jouer en local, sinon, ip du serveur 
+	def __init__(self, ipbut = "172.17.10.33" ): #localhost pour jouer en local, sinon, ip du serveur 
 		self.port = int(input("Port, 2048 si vide ") or 2048)
 		self.ipbut = ipbut
 		self.name = input("Nom IA, IA2003420342 si vide ") or "IA2003420342" #permet de donner une valeur par défaut aux input
@@ -102,6 +102,28 @@ class othelloIA: #initialsation du socket
 	
 	
 	def Coupchoisi(self):
+
+		liste0 = [1, 6, 8, 15, 48, 55, 57, 62]
+		liste1 = [9, 10, 11, 12, 13, 14, 17, 22, 25, 30, 33, 38, 41, 46, 49, 50, 51, 52, 53, 54]
+		liste2 = [18, 19, 20, 21, 26, 29, 34, 37, 42, 43, 44, 45]
+		liste3 = [2, 3, 4, 5, 16, 23, 24, 31, 32, 39, 40, 47, 58, 59, 60, 61]
+		liste4 = [0, 7, 56, 63]
+		for elem in self.mouvementspossibles:
+			if elem in liste4:
+				return elem
+		for elem in self.mouvementspossibles:
+			if elem in liste3:
+				return elem
+		for elem in self.mouvementspossibles: 
+			if elem in liste2:
+				return elem
+		for elem in self.mouvementspossibles:
+			if elem in liste1:
+				return elem
+		for elem in self.mouvementspossibles:
+			if elem in liste0:
+				return elem
+		
 
 		return random.choice(self.mouvementspossibles)
 
