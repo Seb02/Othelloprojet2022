@@ -2,6 +2,7 @@
 
 ## Contenu du répositoire 
 * Un fichier ia.py contenant le script de l'IA et la gestion des communucations avec le serveur
+* Un fichier test contenant les tests unitaires effectués
 
 ## Description de l'IA
 
