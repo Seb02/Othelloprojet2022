@@ -1,8 +1,8 @@
 # IA Othello (IA_20034_20342)
 
 ## Contenu du répositoire 
-* Un fichier ia.py contenant le script de l'IA et la gestion des communications avec le serveur
-* Un fichier test contenant les tests unitaires effectués
+* Un fichier *ia.py* contenant le script de l'IA et la gestion des communications avec le serveur
+* Un fichier *test* contenant les tests unitaires effectués
 
 ## Description du fonctionnement de l'IA
 
