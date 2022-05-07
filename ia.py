@@ -3,6 +3,7 @@ import sys
 import json
 import socket
 import random
+import time
 
 class othelloIA: #initialsation du socket 
 	def __init__(self, ipbut = "localhost" ): #localhost pour jouer en local, sinon, ip du serveur 
@@ -17,6 +18,8 @@ class othelloIA: #initialsation du socket
 		self.s.connect(serverAddress)
 		
 		self.etatcoups = ""
+		self.state = ""
+		self.casesprises = ""
 
 
 		#self.receptionsocket = socket.socket()
@@ -48,7 +51,7 @@ class othelloIA: #initialsation du socket
 			reception = True
 			etatserv = ""
 			
-			print('test')
+			
 			while reception:
 
 				messageread = ""
@@ -60,7 +63,7 @@ class othelloIA: #initialsation du socket
 					print(messageread)
 					
 					reception = False
-			print("test2")
+			
 			if messageread == 	{"request": "ping"}:
 				pong = {"response": "pong"}
 				pongencode = json.dumps(pong)
@@ -70,7 +73,8 @@ class othelloIA: #initialsation du socket
 				
 				
 
-				
+				self.state = messageread['state']
+				self.casesprises = messageread['state']['board'][0]+messageread['state']['board'][1]
 				
 				
 				self.PossibleMoves(messageread['state'])
@@ -95,14 +99,37 @@ class othelloIA: #initialsation du socket
 	
 	
 	def Coupchoisi(self):
+		
+		liste0 = [1, 8, 6, 15, 48, 57, 62, 55]
+		liste1 = [9, 14, 49, 54]
+		liste2 = [ 11, 12, 25, 30, 33, 38, 51, 52]
+		liste3 = [19, 20, 26, 29, 34, 37, 43, 44]
+		liste4 =  [3, 4, 24, 31, 32, 39, 59, 60]
+		liste5 = [2, 10, 18, 17, 16, 40, 41, 42, 50, 58, 61, 53, 45, 46, 47, 5, 13, 21, 22, 23]
+		liste6 = [0, 7, 56, 63]
+		coupspris = []
+		i = 0
+		print('test1')
+		print(self.casesprises)
+		for elem in self.casesprises:
+			print(elem)
+			if elem in liste6:
+				print('Test2')
+				i+=1
+				if i>=4:		
+					for elembis in self.mouvementspossibles:
+						coupspris.append(len(self.WillBeTaken(self.state, elembis)))
+						maxindex = coupspris.index(max(coupspris))
+						return self.mouvementspossibles[maxindex]
 
-		liste0 = [1, 6, 8, 15, 48, 55, 57, 62]
-		liste1 = [9, 10, 11, 12, 13, 14, 17, 22, 25, 30, 33, 38, 41, 46, 49, 50, 51, 52, 53, 54]
-		liste2 = [18, 19, 20, 21, 26, 29, 34, 37, 42, 43, 44, 45]
-		liste3 = [2, 3, 4, 5, 16, 23, 24, 31, 32, 39, 40, 47, 58, 59, 60, 61]
-		liste4 = [0, 7, 56, 63]
+		print('test3')
+
 		for elem in self.mouvementspossibles:
-			if elem in liste4:
+			if elem in liste6:
+				return elem
+
+		for elem in self.mouvementspossibles:
+			if elem in liste5:
 				#listeelem4 = []
 				#listeelem4.append(elem)
 				#for coup in listeelem4:
@@ -110,9 +137,12 @@ class othelloIA: #initialsation du socket
 				return elem
 
 		for elem in self.mouvementspossibles:
-			if elem in liste3:
+			if elem in liste4:
 				return elem
 		for elem in self.mouvementspossibles: 
+			if elem in liste3:
+				return elem
+		for elem in self.mouvementspossibles:
 			if elem in liste2:
 				return elem
 		for elem in self.mouvementspossibles:
