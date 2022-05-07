@@ -20,3 +20,8 @@ La stratégie établie est la suivante
 
 ![Othello](https://user-images.githubusercontent.com/99732004/167264240-cfc4e1be-51b6-4b25-9800-9d3ae33bb71e.png)
 
+## Lancement du programme
+
+En lancant le programme, 4 inputs sont envoyés à l'utilisateur, ils contiennent par défaut les éléments nécessaires au lancement du programme.
+Le premier input contient le port sur lequel le client écoute le serveur (2048), le second contient le nom sous lequel s'inscrit le client (IA_20034_20342). Les deux derniers contiennent les matricules des deux auteurs de l'IA. 
+
