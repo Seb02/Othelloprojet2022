@@ -27,3 +27,5 @@ Au démarrage du programme, 4 inputs sont envoyés à l'utilisateur, ils contien
 Le premier input contient le port sur lequel le client écoute le serveur (2048), le second contient le nom sous lequel s'inscrit le client (IA_20034_20342). Les deux derniers contiennent les matricules des deux auteurs de l'IA (20034 et 20342).
 
 
+
+
