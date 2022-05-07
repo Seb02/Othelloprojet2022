@@ -4,7 +4,7 @@
 * Un fichier ia.py contenant le script de l'IA et la gestion des communucations avec le serveur
 * Un fichier test contenant les tests unitaires effectués
 
-## Description de l'IA
+## Description du fonctionnement de l'IA
 
 l'objectif de ce travail est la réalisation d'une IA capable de jouer des parties de Othello, un jeu de plateau à deux joueurs, voir [Règles du jeu](https://www.ffothello.org/othello/regles-du-jeu/).
 Les capacités de l'IA ont été priorisées comme suit : 
