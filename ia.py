@@ -77,10 +77,11 @@ class othelloIA: #initialsation du socket
 				self.casesprises = messageread['state']['board'][0]+messageread['state']['board'][1]
 				
 				
-				self.PossibleMoves(messageread['state'])
+				self.PossibleMoves(self.state)
 				self.etatcoups = messageread['state']
 
 				if len(self.mouvementspossibles) > 0:
+					
 					mouvement = self.Coupchoisi()
 					reponse = {"response": "move", "move": mouvement, "message": "Fun message"}
 					mouvementaenvoyer = json.dumps(reponse)
@@ -112,48 +113,71 @@ class othelloIA: #initialsation du socket
 		print('test1')
 		print(self.casesprises)
 		for elem in self.casesprises:
-			print(elem)
-			if elem in liste6:
-				print('Test2')
+			
+			if elem in liste6 or elem in liste4:
+				
 				i+=1
-				if i>=4:		
+				if i>=12  and len(self.casesprises)>=58:	
+					print('Test2')	
 					for elembis in self.mouvementspossibles:
 						coupspris.append(len(self.WillBeTaken(self.state, elembis)))
 						maxindex = coupspris.index(max(coupspris))
 						return self.mouvementspossibles[maxindex]
 
 		print('test3')
+		listeElem6 = []
 
 		for elem in self.mouvementspossibles:
 			if elem in liste6:
-				return elem
-
+				listeElem6.append(elem)
+		
+		listeElem5 = []
 		for elem in self.mouvementspossibles:
 			if elem in liste5:
-				#listeelem4 = []
-				#listeelem4.append(elem)
-				#for coup in listeelem4:
-				#	self.WillBeTaken(self.etatcoups, elem)
-				return elem
-
+				listeElem5.append(elem)
+		
+		listeElem4 = []
 		for elem in self.mouvementspossibles:
 			if elem in liste4:
-				return elem
+				listeElem4.append(elem)
+		
+		listeElem3 = []
 		for elem in self.mouvementspossibles: 
 			if elem in liste3:
-				return elem
+				listeElem3.append(elem)
+		
+		listeElem2 = []
 		for elem in self.mouvementspossibles:
 			if elem in liste2:
-				return elem
+				listeElem2.append(elem)
+		
+		listeElem1 = []
 		for elem in self.mouvementspossibles:
 			if elem in liste1:
-				return elem
+				listeElem1.append(elem)
+		
+		listeElem0 = []
 		for elem in self.mouvementspossibles:
 			if elem in liste0:
-				return elem
+				listeElem0.append(elem)
 		
+		if len(listeElem6)>0:
+			return self.MoinsDeMouvPoss(listeElem6)
+		if len(listeElem5)>0:
+			return self.MoinsDeMouvPoss(listeElem5)
+		if len(listeElem4)>0:
+			return self.MoinsDeMouvPoss(listeElem4)
+		if len(listeElem3)>0:
+			return self.MoinsDeMouvPoss(listeElem3)
+		if len(listeElem2)>0:
+			return self.MoinsDeMouvPoss(listeElem2)
+		if len(listeElem1)>0:
+			return self.MoinsDeMouvPoss(listeElem1)
+		if len(listeElem0)>0:
+			return self.MoinsDeMouvPoss(listeElem0)
+		else:
+			return random.choice(self.mouvementspossibles)
 
-		return random.choice(self.mouvementspossibles)
 
 	def WillBeTaken(self, state, move):
 		playerIndex = state['current']
@@ -214,6 +238,22 @@ class othelloIA: #initialsation du socket
 			current = self.add(current, direction)
 			yield current
 
+	def MoinsDeMouvPoss(self, listemvts):
+
+	
+		coupspris = []
+		for elem in listemvts:
+			coupspris.append(len(self.WillBeTaken(self.state, elem)))
+			minindex = coupspris.index(min(coupspris))
+			print(minindex)
+			print(coupspris)
+			print(len(coupspris))
+			print(len(listemvts))
+			print(listemvts[minindex])
+		return listemvts[minindex]
+		
+			
+
 
 	def PossibleMoves(self, state):
 		res = []
@@ -224,7 +264,6 @@ class othelloIA: #initialsation du socket
 			except BadMove:
 				pass
 		self.mouvementspossibles = res
-
 
 
 	def coord(self, index):
