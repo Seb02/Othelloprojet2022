@@ -17,4 +17,4 @@ La stratégie établie est la suivante
 - Une fois le cases des listes 5 et 6 contrôlés la méthode de jeu change, l'objectif est maintenant de retourner le plus de pions possibles et l'IA sélectionne donc uniquement le choix qui rapporte le plus de points.
  
 
-![othello_grille](https://user-images.githubusercontent.com/99732004/167263253-3a29d7b4-5307-44b4-974f-acb697a163be.png)
+![Othello](https://user-images.githubusercontent.com/99732004/167264240-cfc4e1be-51b6-4b25-9800-9d3ae33bb71e.png)
