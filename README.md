@@ -7,7 +7,7 @@
 
 ## Description de l'IA
 
-l'objectif de ce travail est la réalisation d'une IA capable de jouer des parties de Othello, un jeu de plateau à deux joueurs. (ref othello)
+l'objectif de ce travail est la réalisation d'une IA capable de jouer des parties de Othello, un jeu de plateau à deux joueurs, voir [Règles du jeu](https://www.ffothello.org/othello/regles-du-jeu/).
 Les capacités de l'IA ont été priorisées comme suit : 
 1. Battre un joueur plaçant ses coups de manière aléatoire 
 2. Jouer ses propres coups dans un minimum de temps (<10s)
@@ -19,4 +19,3 @@ La stratégie établie est la suivante
 
 ![Othello](https://user-images.githubusercontent.com/99732004/167264240-cfc4e1be-51b6-4b25-9800-9d3ae33bb71e.png)
 
-This site was built using [GitHub Pages](https://www.ffothello.org/othello/regles-du-jeu/).
