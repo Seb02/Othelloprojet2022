@@ -1,3 +1,7 @@
 import ia
-def test_add():
-    assert ia.coord(5) == (0, 5)
+import unittest
+
+
+def test_basics():
+    assert ia.coord(8) == (1,0)
+    assert ia.add((2,4),(4,6)) == (6,10)
