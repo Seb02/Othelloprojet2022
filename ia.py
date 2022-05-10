@@ -9,7 +9,7 @@ class othelloIA: #initialsation du socket
 	def __init__(self, ipbut = "localhost" ): #localhost pour jouer en local, sinon, ip du serveur 
 		self.port = int(input("Port, 2048 si vide ") or 2048)
 		self.ipbut = ipbut
-		self.name = input("Nom IA, IA2003420342 si vide ") or "IA2003420342" #permet de donner une valeur par défaut aux input
+		self.name = input("Nom IA, IA2003420342 si vide ") or "IA_20034_20342" #permet de donner une valeur par défaut aux input
 		self.matricule1 =  input("matricule 1, 20034 si vide ") or "20034"
 		self.matricule2 = input("matricule 2, 20342 si vide ") or "20342"
 		self.s = socket.socket()  
@@ -108,16 +108,17 @@ class othelloIA: #initialsation du socket
 		liste4 =  [3, 4, 24, 31, 32, 39, 59, 60]
 		liste5 = [2, 10, 18, 17, 16, 40, 41, 42, 50, 58, 61, 53, 45, 46, 47, 5, 13, 21, 22, 23]
 		liste6 = [0, 7, 56, 63]
+		listetot = liste6 + liste4
 		coupspris = []
 		i = 0
 		print('test1')
 		print(self.casesprises)
 		for elem in self.casesprises:
 			
-			if elem in liste6 or elem in liste4:
+			if elem in listetot:
 				
 				i+=1
-				if i>=12  and len(self.casesprises)>=58:	
+				if i>=12 :	
 					print('Test2')	
 					for elembis in self.mouvementspossibles:
 						coupspris.append(len(self.WillBeTaken(self.state, elembis)))
