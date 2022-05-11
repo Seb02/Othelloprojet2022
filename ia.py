@@ -32,11 +32,12 @@ def Coupchoisi(casesprises, mouvementspossibles, state):
 			
 			i+=1
 			if i>=12 :	
-				print('Test2')	
+				print('TestMaxCoup')	
 				for elembis in mouvementspossibles:
 					coupspris.append(len(WillBeTaken(state, elembis)))
 					maxindex = coupspris.index(max(coupspris))
 					return mouvementspossibles[maxindex]
+			
 	print('test3')
 	listeElem6 = []
 	for elem in mouvementspossibles:
