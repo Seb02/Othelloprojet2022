@@ -23,25 +23,25 @@ class othelloIA: #initialsation du socket
 		self.casesprises = ""
 
 
-		#self.receptionsocket = socket.socket()
+		
 		
 		
 		
 		
 		
 	
-	def inscription(self):
+	def inscription(self): #gère la partie réseau et appelle les fonctions de calcul de coups
 
 		renseignements = json.dumps({
 		   "request": "subscribe",
 		   "port": self.port,
 		   "name": self.name,
 		   "matricules": [self.matricule1, self.matricule2]
-		}) #json.dumps() function converts a Python object into a json string.
+		}) #json.dumps() function converts a Python object into a json string., requête d'insciption + infos sur le client
 		self.s.send(renseignements.encode('utf8'))
 		self.PingPong()
 		self.couleurjoueur = ""
-	def PingPong(self):
+	def PingPong(self):  #fonction qui gère les réceptions et les envois pendant la partie; que ce soit pour les ping ou les coups
 		
 		while True:
 			receptionsocket = socket.socket()
@@ -58,30 +58,30 @@ class othelloIA: #initialsation du socket
 				messageread = ""
 				etatserv = ""
 				
-				etatserv = client.recv(4096).decode('utf8')
+				etatserv = client.recv(4096).decode('utf8') #réception du message envoyé par le serveur
 				if etatserv != "":
 					messageread = json.loads(etatserv)
 					print(messageread)
 					
 					reception = False
 			
-			if messageread == 	{"request": "ping"}:
+			if messageread == 	{"request": "ping"}: #réponse à la requête ping
 				pong = {"response": "pong"}
 				pongencode = json.dumps(pong)
 				client.send(pongencode.encode('utf8'))
 				print('ok')
-			if messageread["request"] == "play":
+			if messageread["request"] == "play": #réponse à la requête de coups
 				
 				
 
 				
-				self.casesprises = messageread['state']['board'][0]+messageread['state']['board'][1]
+				self.casesprises = messageread['state']['board'][0]+messageread['state']['board'][1]  #défini la liste des cases prises, ce qui permet à l'ia de calculer le coup choisi
 				
 				
-				mouvementsPossibles =ia.PossibleMoves(messageread['state'])
+				mouvementsPossibles =ia.PossibleMoves(messageread['state'])  #appelle à la fonction possible moves, contenue à l'origine dans le fichier game.py du getionnaire de partie
 				self.etatcoups = messageread['state']
 
-				if len(mouvementsPossibles) > 0:
+				if len(mouvementsPossibles) > 0:  #joue un coup seuelemnt si c'est possible 
 					
 					mouvement = ia.Coupchoisi(self.casesprises, mouvementsPossibles, self.etatcoups)
 					reponse = {"response": "move", "move": mouvement, "message": "Fun message"}
