@@ -3,14 +3,14 @@
 ## Contenu du répositoire 
 * Un fichier *ia.py* contenant le script de l'IA 
 * Un fichier *networkPart.py* contenant la gestion des communications avec le serveur
-* Un fichier *test* contenant les tests unitaires effectués
+* Un fichier *test_ia.py* contenant les tests unitaires effectués
 
 ## Description du fonctionnement de l'IA
 
 l'objectif de ce travail est la réalisation d'une IA capable de jouer des parties de Othello, un jeu de plateau à deux joueurs, voir [Règles du jeu](https://www.ffothello.org/othello/regles-du-jeu/).
 Les capacités de l'IA ont été priorisées comme suit : 
 1. Respecter en tout temps les règles du jeu
-2. Jouer ses propres coups dans un minimum de temps (<10s)
+2. Jouer ses propres coups dans un minimum de temps (<5s)
 3. Battre un joueur plaçant ses coups de manière aléatoire 
 
 
@@ -35,7 +35,7 @@ Des tests unitaires ont été effectuées et couvrent le code de l'IA à hauteur
 
 ## Résultats face un jeu aléatoire 
 
-La rapidité d'exécution de l'IA permet d'effectuer un grand nombre de matches et d'en tirer une moyenne. Sur un échantillon représentatif de 180 matches 163 ont été gagnés ce qui équivaut à un taux de 90.5% 
+La rapidité d'exécution de l'IA permet d'effectuer un grand nombre de matches face à un jeu "random" (cf objectif 2) et d'en tirer une moyenne. Un match gagné rapporte 3 points au vainqueur et une égalité rapporte 1 point à chaque joueur. Sur un échantillon représentatif de 180 matches 163 ont été gagnés ce qui équivaut à un taux de 90.5%. les égalités n'ont pas été totalisées étant dans des proportions négligeables.
 
 ![resultats](https://user-images.githubusercontent.com/99732004/167870046-2c14ce5b-6ee5-4727-8631-1534a70af6c0.png)
 
