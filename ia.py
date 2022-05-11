@@ -4,7 +4,7 @@ import socket
 import random
 import time
 
-def add(p1, p2):
+def add(p1, p2): 
 		l1, c1 = p1
 		l2, c2 = p2
 		return l1 + l2, c1 + c2 
@@ -14,7 +14,7 @@ def coord(index):
 
 def Coupchoisi(casesprises, mouvementspossibles, state):
 		
-	liste0 = [1, 8, 6, 15, 48, 57, 62, 55]
+	liste0 = [1, 8, 6, 15, 48, 57, 62, 55] #liste des cases par ordre de préférence, 6 étant les cases prioritaires
 	liste1 = [9, 14, 49, 54]
 	liste2 = [ 11, 12, 25, 30, 33, 38, 51, 52]
 	liste3 = [19, 20, 26, 29, 34, 37, 43, 44]
@@ -31,7 +31,7 @@ def Coupchoisi(casesprises, mouvementspossibles, state):
 		if elem in listetot:
 			
 			i+=1
-			if i>=12 :	
+			if i>=12 :	#changement de stratégie si les cases prioritatires sont prises : but = prendre le plus de cases possible
 				print('TestMaxCoup')	
 				for elembis in mouvementspossibles:
 					coupspris.append(len(WillBeTaken(state, elembis)))
@@ -39,7 +39,7 @@ def Coupchoisi(casesprises, mouvementspossibles, state):
 					return mouvementspossibles[maxindex]
 			
 	print('test3')
-	listeElem6 = []
+	listeElem6 = []  #ajoute, pour chaque type de cases, la liste des coups jouables
 	for elem in mouvementspossibles:
 		if elem in liste6:
 			listeElem6.append(elem)
@@ -74,8 +74,8 @@ def Coupchoisi(casesprises, mouvementspossibles, state):
 		if elem in liste0:
 			listeElem0.append(elem)
 	
-	if len(listeElem6)>0:
-		return MoinsDeMouvPoss(listeElem6, state)
+	if len(listeElem6)>0: #renvoie, par ordre de priorité des cases, le coups avec un numéro de liste le plus éleve
+		return MoinsDeMouvPoss(listeElem6, state) #appel à la fonction Moins de mouv poss pour choisir, dans la liste des coups les plus avantageux, celui qui retouren le moins de pions
 	if len(listeElem5)>0:
 		return MoinsDeMouvPoss(listeElem5, state)
 	if len(listeElem4)>0:
@@ -148,7 +148,7 @@ def walk(start, direction):
 			current = add(current, direction)
 			yield current
 
-def MoinsDeMouvPoss(listemvts, state):
+def MoinsDeMouvPoss(listemvts, state): #définit, avec une liste de coups jouables en entrée, celui qui retournera le moins de pions
 
 	
 		coupspris = []
