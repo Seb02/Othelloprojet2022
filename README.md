@@ -7,7 +7,7 @@
 
 ## Description du fonctionnement de l'IA
 
-l'objectif de ce travail est la réalisation d'une IA capable de jouer des parties de Othello, un jeu de plateau à deux joueurs, voir [Règles du jeu](https://www.ffothello.org/othello/regles-du-jeu/).
+L’objectif de ce travail est la réalisation d'une IA capable de jouer des parties de Othello, un jeu de plateau à deux joueurs, voir [Règles du jeu](https://www.ffothello.org/othello/regles-du-jeu/).
 Les capacités de l'IA ont été priorisées comme suit : 
 1. Respecter en tout temps les règles du jeu
 2. Jouer ses propres coups dans un minimum de temps (<5s)
@@ -15,7 +15,7 @@ Les capacités de l'IA ont été priorisées comme suit :
 
 
 La stratégie établie est la suivante :
-- Dans un premier temps l'objectif est de controler des cases statégiquements importantes du jeu. La priorité des coups est définie par des listes reprennant les cases par ordre d'importance, leurs positions sont représentées sur la figure 1. Lorsque plusieurs choix sont équivalents celui qui retourne le moins de pions est choisi en priorité afin de laisser le moins de possibilités de coups à l'adversaire. Cette stratégie est adoptée tant que les cases des listes 5 et 6 ne sont pas intégralement controlées 
+- Dans un premier temps l'objectif est de contrôler des cases stratégiquement importantes du jeu. La priorité des coups est définie par des listes reprenant les cases par ordre d'importance, leurs positions sont représentées sur la figure 1. Lorsque plusieurs choix sont équivalents celui qui retourne le moins de pions est choisi en priorité afin de laisser le moins de possibilités de coups à l'adversaire. Cette stratégie est adoptée tant que les cases des listes 5 et 6 ne sont pas intégralement contrôlées 
 - Une fois les cases des listes 5 et 6 contrôlées la méthode de jeu change, l'objectif est maintenant de retourner le plus de pions possibles et l'IA sélectionne donc uniquement le choix qui rapporte le plus de points.
  
 ![strategie](https://user-images.githubusercontent.com/99732004/167869997-67b49e6c-2482-4bb2-8a40-eff0989c73a1.png)
@@ -35,7 +35,6 @@ Des tests unitaires ont été effectuées et couvrent le code de l'IA à hauteur
 
 ## Résultats face un jeu aléatoire 
 
-La rapidité d'exécution de l'IA permet d'effectuer un grand nombre de matches face à un jeu "random" (cf objectif 2) et d'en tirer une moyenne. Un match gagné rapporte 3 points au vainqueur et une égalité rapporte 1 point à chaque joueur. Sur un échantillon représentatif de 180 matches 163 ont été gagnés ce qui équivaut à un taux de 90.5%. les égalités n'ont pas été totalisées étant dans des proportions négligeables.
+La rapidité d'exécution de l'IA permet d'effectuer un grand nombre de matches face à un jeu "random" (cf. objectif 2) et d'en tirer une moyenne. Un match gagné rapporte 3 points au vainqueur et une égalité rapporte 1 point à chaque joueur. Sur un échantillon représentatif de 180 matches 163 ont été gagnés ce qui équivaut à un taux de 90.5%. Les égalités n'ont pas été totalisées étant dans des proportions négligeables.
 
 ![resultats](https://user-images.githubusercontent.com/99732004/167870046-2c14ce5b-6ee5-4727-8631-1534a70af6c0.png)
-
