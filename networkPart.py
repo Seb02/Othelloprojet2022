@@ -8,11 +8,20 @@ import ia
 
 class othelloIA: #initialsation du socket 
 	def __init__(self, ipbut = "localhost" ): #localhost pour jouer en local, sinon, ip du serveur 
-		self.port = int(input("Port, 2048 si vide ") or 2048)
+
+		####Manière de lancer modifiée suite au changement de programme (pas de partie en ligne mais en local)####
+
+
+		# = int(input("Port, 2048 si vide ") or 2048) 
+		self.port = int(sys.argv[1]) #permet de choisir le port 
 		self.ipbut = ipbut
-		self.name = input("Nom IA, IA2003420342 si vide ") or "IA_20034_20342" #permet de donner une valeur par défaut aux input
-		self.matricule1 =  input("matricule 1, 20034 si vide ") or "20034"
-		self.matricule2 = input("matricule 2, 20342 si vide ") or "20342"
+		#self.name = input("Nom IA, IA_20034_20342 si vide ") or "IA_20034_20342" #permet de donner une valeur par défaut aux input
+		#self.matricule1 =  input("matricule 1, 20034 si vide ") or "20034"
+		#self.matricule2 = input("matricule 2, 20342 si vide ") or "20342"
+		self.name = "IA_20034_20342"
+		self.matricule1 = "20034"
+		self.matricule2 = "20342"
+
 		self.s = socket.socket()  
 		serverAddress = (self.ipbut, 3000) #port 3000 : utilisé pour atteindre le serveur de gestion des jeux
 		print(serverAddress)
@@ -21,7 +30,7 @@ class othelloIA: #initialsation du socket
 		self.etatcoups = ""
 		self.state = ""
 		self.casesprises = ""
-
+		
 
 		
 		
