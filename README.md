@@ -22,7 +22,7 @@ La stratégie établie est la suivante :
 
 
 ## Lancement du programme
-*Nouvelle version pour le match en local* : lancer le programme avec en argument dans le console le numéro de port sur lequel le client va écouter le serveur. Les matricules corrects, et le nom de l'IA sont préremplis et aucune action n'est nécessaire pour ces 3 valeurs. 
+*Nouvelle version pour le match en local* : lancer le programme (networkpart.py) avec en argument dans le console le numéro de port sur lequel le client va écouter le serveur. Les matricules corrects, et le nom de l'IA sont préremplis et aucune action n'est nécessaire pour ces 3 valeurs. 
 *Version de base, prévue pour les matchs en réseau :*
 Au démarrage du programme (fichier NetworkPart) 4 inputs sont envoyés à l'utilisateur, ils contiennent par défaut les éléments nécessaires au lancement du programme.
 Le premier input contient le port sur lequel le client écoute le serveur (2048), le second contient le nom sous lequel s'inscrit le client (IA_20034_20342). Les deux derniers contiennent les matricules des deux auteurs de l'IA (20034 et 20342).
