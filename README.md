@@ -24,9 +24,9 @@ La stratégie établie est la suivante :
 ## Lancement du programme
 
 
-Au démarrage du programme 4 inputs sont envoyés à l'utilisateur, ils contiennent par défaut les éléments nécessaires au lancement du programme.
+Au démarrage du programme (fichier NetworkPart) 4 inputs sont envoyés à l'utilisateur, ils contiennent par défaut les éléments nécessaires au lancement du programme.
 Le premier input contient le port sur lequel le client écoute le serveur (2048), le second contient le nom sous lequel s'inscrit le client (IA_20034_20342). Les deux derniers contiennent les matricules des deux auteurs de l'IA (20034 et 20342).
-Pour se connecter sur un serveur sur une autre machine, modifier la valeur "ipbut" contenue dans les paramètres de la fonction __init__. Cette valeur est localhost par défaut mais peut être modifiée par l'adresse ip désirée. 
+Pour se connecter sur un serveur sur une autre machine, modifier la valeur "ipbut" contenue dans les paramètres de la fonction __init__(dans le fichier NetworkPart). Cette valeur est localhost par défaut mais peut être modifiée par l'adresse ip désirée. 
 
 ## Tests unitaires 
 
